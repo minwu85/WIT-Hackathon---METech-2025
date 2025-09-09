@@ -56,6 +56,8 @@ function startGame(level) {
 
   document.getElementById("currentLevel").textContent = level
   document.getElementById("score").textContent = score
+  const totalRounds = levelImages[currentLevel].length
+  document.getElementById("roundCounter").textContent = `${currentRound}/${totalRounds}`
 
   showScreen("gameScreen")
   loadRound()
@@ -68,9 +70,13 @@ function loadRound() {
     return
   }
 
+  document.getElementById("roundCounter").textContent = `${currentRound}/${totalRounds}`
+
   const roundData = gameData[currentRound - 1]
   const leftImage = document.getElementById("leftImage")
   const rightImage = document.getElementById("rightImage")
+
+  console.log("[v0] Loading round", currentRound, "with images:", roundData)
 
   // Randomly decide which side gets the fake image
   const fakeOnLeft = Math.random() < 0.5
@@ -85,6 +91,15 @@ function loadRound() {
     rightImage.src = roundData.fake
     leftImage.dataset.type = "real"
     rightImage.dataset.type = "fake"
+  }
+
+  leftImage.onerror = function () {
+    console.log("[v0] Failed to load left image:", this.src)
+    this.src = "/happy-golden-retriever.png"
+  }
+  rightImage.onerror = function () {
+    console.log("[v0] Failed to load right image:", this.src)
+    this.src = "/happy-golden-retriever.png"
   }
 
   // Reset UI
@@ -151,8 +166,10 @@ function endGame() {
   document.getElementById("completedLevel").textContent = currentLevel
   document.getElementById("finalScore").textContent = score
 
-  const scoreMessage = document.getElementById("scoreMessage")
   const totalQuestions = levelImages[currentLevel].length
+  document.getElementById("totalQuestions").textContent = totalQuestions
+
+  const scoreMessage = document.getElementById("scoreMessage")
   const scorePercentage = (score / totalQuestions) * 100
 
   if (scorePercentage >= 90) {
