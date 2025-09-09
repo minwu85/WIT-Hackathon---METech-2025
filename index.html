@@ -21,10 +21,10 @@
                     <div class="module-arrow">→</div>
                 </div>
                 
-                <div class="module-card" onclick="showCaseStudy()">
+                <div class="module-card" onclick="showMoreInformation()">
                     <div class="module-icon">📚</div>
-                    <h3>Case Study</h3>
-                    <p>Real-World Example</p>
+                    <h3>More Information</h3>
+                    <p>Health Scams & Safety</p>
                     <div class="module-arrow">→</div>
                 </div>
                 
@@ -139,6 +139,103 @@
         </div>
     </div>
 
+    <!-- Case Study Screen - After Level 1 -->
+    <div id="caseStudyLevel1Screen" class="screen">
+        <div class="container">
+            <h2>How does deepfake abuse happen?</h2>
+            <div class="case-study-content">
+                <div class="case-section">
+                    <h3>🔧 'Nudify' apps and AI tools</h3>
+                    <p>Many deepfakes targeting young people are created with AI apps that appear to remove clothing from photos – turning everyday images into explicit material. These images can appear shockingly realistic, especially when viewed on small screens and shared quickly.</p>
+                    
+                    <p>A person can be targeted even if they've never shared an explicit image. The image could be a regular selfie, a school photo, or a social media post. When misused, these apps can turn ordinary images into tools of humiliation, coercion, or blackmail.</p>
+                    
+                    <p>Nudify apps are widely accessible, free or low cost, and often require no technical skill. They are increasingly marketed to younger users via social platforms and forums. This makes them not only dangerous, but also deceptively easy – turning impulsive or careless decisions into serious harm.</p>
+                </div>
+
+                <div class="case-section">
+                    <h3>📱 Fake images and videos</h3>
+                    <p>Once created, deepfake images and videos can be shared as supposedly 'harmless' fun, a form of bullying, or as part of deliberate image-based abuse.</p>
+                    
+                    <p>Even when people know the content is fake, the emotional and psychological harm is very real – especially for teens who may feel exposed or powerless.</p>
+                    
+                    <p>Some students are tricked or threatened using these fakes. Others are sent AI-generated content of their peers, causing distress, confusion, and gossip. Young people experiment without understanding the serious legal and personal consequences.</p>
+                </div>
+            </div>
+            
+            <div class="case-study-actions">
+                <button class="btn primary" onclick="continueToNextLevel()">Continue to Next Level</button>
+                <button class="btn secondary" onclick="showHome()">Back to Home</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Case Study Screen - After Level 4 -->
+    <div id="caseStudyLevel4Screen" class="screen">
+        <div class="container">
+            <h2>Who is affected?</h2>
+            <div class="case-study-content">
+                <div class="case-section">
+                    <h3>🎯 Targets</h3>
+                    <p>Any student or school staff member can be targeted, regardless of what they post online or how they behave. All it takes is one image, the wrong app and someone who either recklessly or knowingly causes harm.</p>
+                    
+                    <p>Targets often experience intense emotional fallout: humiliation, fear, anger, confusion. Some are scared to speak up, fearing they won't be believed or will be blamed for what happened. They often also feel ashamed, even though they've done nothing wrong.</p>
+                    
+                    <p>In some cases, the mere threat of a deepfake – even if no fake exists – is enough to cause distress or manipulate behaviour.</p>
+                </div>
+
+                <div class="case-section">
+                    <h3>👥 Bystanders</h3>
+                    <p>Young people may also witness this behaviour – in group chats, on social media, or via private messages. They may feel unsure whether to report it, what to say, or how to support their friends. They may also worry they'll be next.</p>
+                </div>
+
+                <div class="case-section">
+                    <h3>⚠️ Creators</h3>
+                    <p>Some young people use these tools as a prank or experiment without fully understanding the impact. They may not realise that creating or sharing fake nudes, even synthetic ones, can be a serious criminal offence in some states and territories.</p>
+                </div>
+            </div>
+            
+            <div class="case-study-actions">
+                <button class="btn primary" onclick="continueToNextLevel()">Continue to Next Level</button>
+                <button class="btn secondary" onclick="showHome()">Back to Home</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Case Study Screen - After Level 7 -->
+    <div id="caseStudyLevel7Screen" class="screen">
+        <div class="container">
+            <h2>What does the law say?</h2>
+            <div class="case-study-content">
+                <div class="case-section">
+                    <h3>⚖️ Understanding the law</h3>
+                    <p>Understanding the law can help when you're educating young people or supporting someone who has experienced image-based abuse.</p>
+                    
+                    <p>However, legal action is only one part of the solution; it cannot address everything on its own.</p>
+                    
+                    <p>In some states, it is now a criminal offence to create or share AI-generated explicit content without consent, even if the material is synthetic.</p>
+                    
+                    <p>For example, in South Australia, students as young as 16 can be prosecuted for creating or sharing humiliating or degrading deepfakes.</p>
+                </div>
+
+                <div class="case-section">
+                    <h3>📞 Where to report</h3>
+                    <ul>
+                        <li><strong>To your school</strong> - if the incident involves other students.</li>
+                        <li><strong>To local police</strong> - especially if a crime may have occurred.</li>
+                        <li><strong>To eSafety</strong> - using the Report Abuse portal. Include the police event number if available.</li>
+                        <li><strong>Never share or save explicit content</strong> - instead, make a written record of links (URLS), account names, and descriptions for evidence.</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="case-study-actions">
+                <button class="btn primary" onclick="continueToNextLevel()">Continue to Next Level</button>
+                <button class="btn secondary" onclick="showHome()">Back to Home</button>
+            </div>
+        </div>
+    </div>
+
     <!-- Start Screen -->
     <div id="startScreen" class="screen">
         <div class="container">
@@ -163,7 +260,7 @@
     <div id="levelScreen" class="screen">
         <div class="container">
             <h2>Choose Your Level</h2>
-            <p>Select difficulty level (1 = Easy, 10 = Expert)</p>
+            <p>Select difficulty level (1 = Easy, 9 = Expert)</p>
             <div class="level-grid">
                 <button class="level-btn" onclick="startGame(1)">Level 1</button>
                 <button class="level-btn" onclick="startGame(2)">Level 2</button>
@@ -174,8 +271,9 @@
                 <button class="level-btn" onclick="startGame(7)">Level 7</button>
                 <button class="level-btn" onclick="startGame(8)">Level 8</button>
                 <button class="level-btn" onclick="startGame(9)">Level 9</button>
-                <button class="level-btn" onclick="startGame(10)">Level 10</button>
+                <button class="level-btn info-btn" onclick="showMoreInformation()">More Information</button>
             </div>
+            <button class="btn secondary" onclick="showHome()">Return to Home</button>
             <button class="btn secondary" onclick="showStart()">Back</button>
         </div>
     </div>
@@ -207,7 +305,154 @@
             <div id="feedback" class="feedback"></div>
             
             <div class="game-controls">
+                <button class="btn secondary" onclick="showLevelSelect()">Back to Levels</button>
                 <button id="nextBtn" class="btn primary" onclick="nextRound()" style="display: none;">Next Round</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Ball Game Screen -->
+    <div id="ballGameScreen" class="screen">
+        <div class="container">
+            <div class="game-header">
+                <h2>Level <span id="ballCurrentLevel">4</span> - Ball Challenge</h2>
+                <div class="score">Score: <span id="ballScore">0</span> | Round: <span id="ballRoundCounter">1/4</span></div>
+            </div>
+            
+            <div class="game-question">
+                <h3>Roll the ball to the correct side!</h3>
+                <p>Left = Real, Right = Fake. You have 3 seconds!</p>
+                <p class="instruction-detail">Move the arrow keys left or right to roll the ball to the correct image side.</p>
+            </div>
+
+            <div class="ball-challenge">
+                <div class="current-image-display">
+                    <img id="ballImage" src="/placeholder.svg" alt="Image to analyze">
+                </div>
+                
+                <div class="ball-arena">
+                    <div class="ball-timer">
+                        <div class="timer-display" id="ballTimer">3</div>
+                        <div class="timer-bar">
+                            <div class="timer-fill" id="ballTimerFill"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="ball-track">
+                        <div id="ball" class="ball"></div>
+                    </div>
+                    
+                    <div class="choice-zones">
+                        <div class="choice-zone real">REAL</div>
+                        <div class="choice-zone fake">FAKE</div>
+                    </div>
+                </div>
+                
+                <div class="ball-instructions">
+                    Use ← → arrow keys to control the ball!
+                </div>
+            </div>
+
+            <div id="ballFeedback" class="ball-feedback"></div>
+            
+            <div class="game-controls">
+                <button class="btn secondary" onclick="showLevelSelect()">Back to Levels</button>
+                <button id="ballNextBtn" class="btn primary" onclick="nextBallRound()" style="display: none;">Next Round</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Circle Game Screen -->
+    <div id="circleGameScreen" class="screen">
+        <div class="container">
+            <div class="game-header">
+                <h2>Level <span id="circleCurrentLevel">7</span> - Find the Fake</h2>
+                <div class="score">Score: <span id="circleScore">0</span> | Round: <span id="circleRoundCounter">1/7</span></div>
+            </div>
+            
+            <div class="game-question">
+                <h3>Circle the fake image!</h3>
+                <p>Look at all 4 images and click on the one that's fake</p>
+            </div>
+
+            <div class="circle-images-grid">
+                <div class="circle-image-option" onclick="selectCircleImage(0)">
+                    <img id="circleImage0" src="/placeholder.svg" alt="Option 1">
+                    <div class="circle-overlay" id="circleOverlay0"></div>
+                </div>
+                <div class="circle-image-option" onclick="selectCircleImage(1)">
+                    <img id="circleImage1" src="/placeholder.svg" alt="Option 2">
+                    <div class="circle-overlay" id="circleOverlay1"></div>
+                </div>
+                <div class="circle-image-option" onclick="selectCircleImage(2)">
+                    <img id="circleImage2" src="/placeholder.svg" alt="Option 3">
+                    <div class="circle-overlay" id="circleOverlay2"></div>
+                </div>
+                <div class="circle-image-option" onclick="selectCircleImage(3)">
+                    <img id="circleImage3" src="/placeholder.svg" alt="Option 4">
+                    <div class="circle-overlay" id="circleOverlay3"></div>
+                </div>
+            </div>
+
+            <div id="circleFeedback" class="feedback"></div>
+            
+            <div class="game-controls">
+                <button class="btn secondary" onclick="showLevelSelect()">Back to Levels</button>
+                <button id="circleNextBtn" class="btn primary" onclick="nextCircleRound()" style="display: none;">Next Round</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- More Information Screen -->
+    <div id="moreInformationScreen" class="screen">
+        <div class="container">
+            <h2>Health Scams & Deepfake Safety</h2>
+            
+            <div class="info-section">
+                <h3>🏥 How Deepfakes Are Used in Health Scams</h3>
+                <p>In December 2024, Diabetes Victoria exposed deepfake videos showing fake experts from The Baker Heart and Diabetes Institute promoting diabetes supplements. These convincing fake videos used real doctors' images without permission to sell unproven products.</p>
+                
+                <p>This isn't isolated - scammers regularly use deepfake images of trusted doctors like Dr Karl Kruszelnicki to sell pills via social media. Even when reported, many platforms don't remove these deceptive ads.</p>
+            </div>
+
+            <div class="info-section">
+                <h3>🔍 What to Look Out For</h3>
+                <p>When viewing health-related content online, check for these warning signs:</p>
+                <ul>
+                    <li><strong>Visual Issues:</strong> Blurring, pixelation, or skin discoloration</li>
+                    <li><strong>Audio Problems:</strong> Badly synced sound or unnatural speech patterns</li>
+                    <li><strong>Context Clues:</strong> Ask yourself - would this person really say this?</li>
+                    <li><strong>Movement:</strong> Irregular blinking or unnatural gestures</li>
+                    <li><strong>Background:</strong> Inconsistent lighting or sudden changes</li>
+                </ul>
+            </div>
+
+            <div class="info-section">
+                <h3>🛡️ How to Stay Safe</h3>
+                <div class="safety-tips">
+                    <div class="safety-tip">
+                        <h4>Verify the Source</h4>
+                        <p>Contact the person directly to confirm if the endorsement is legitimate</p>
+                    </div>
+                    <div class="safety-tip">
+                        <h4>Question Publicly</h4>
+                        <p>Leave comments questioning suspicious claims to help others be critical</p>
+                    </div>
+                    <div class="safety-tip">
+                        <h4>Report Fake Content</h4>
+                        <p>Use platform reporting tools to flag fake products and misinformation</p>
+                    </div>
+                    <div class="safety-tip">
+                        <h4>Consult Professionals</h4>
+                        <p>Always seek advice from qualified healthcare providers before making health decisions</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cta-section">
+                <p class="cta-text">Ready to practice your detection skills?</p>
+                <button class="btn primary" onclick="showStart()">Try the Game</button>
+                <button class="btn secondary" onclick="showHome()">Back to Home</button>
             </div>
         </div>
     </div>
