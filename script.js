@@ -5,78 +5,30 @@ let currentRound = 1
 let gameData = []
 let selectedAnswer = null
 
-// Image data for different levels (using placeholder images)
+// Image data for different levels with proper fake/unfake folder structure
 const levelImages = {
-  1: [
-    { fake: "/placeholder.svg?height=200&width=200", real: "/placeholder.svg?height=200&width=200" },
-    { fake: "/placeholder.svg?height=200&width=200", real: "/placeholder.svg?height=200&width=200" },
-    { fake: "/placeholder.svg?height=200&width=200", real: "/placeholder.svg?height=200&width=200" },
-    { fake: "/placeholder.svg?height=200&width=200", real: "/placeholder.svg?height=200&width=200" },
-    { fake: "/placeholder.svg?height=200&width=200", real: "/placeholder.svg?height=200&width=200" },
-    { fake: "/placeholder.svg?height=200&width=200", real: "/placeholder.svg?height=200&width=200" },
-    { fake: "/placeholder.svg?height=200&width=200", real: "/placeholder.svg?height=200&width=200" },
-    { fake: "/placeholder.svg?height=200&width=200", real: "/placeholder.svg?height=200&width=200" },
-    { fake: "/placeholder.svg?height=200&width=200", real: "/placeholder.svg?height=200&width=200" },
-    { fake: "/placeholder.svg?height=200&width=200", real: "/placeholder.svg?height=200&width=200" },
-  ],
+  1: [{ fake: "images/fake/f1(1).jpg", real: "images/unfake/u1(1).jpg" }],
   2: [
-    { fake: "/placeholder.svg?height=200&width=200", real: "/placeholder.svg?height=200&width=200" },
-    { fake: "/placeholder.svg?height=200&width=200", real: "/placeholder.svg?height=200&width=200" },
-    { fake: "/placeholder.svg?height=200&width=200", real: "/placeholder.svg?height=200&width=200" },
-    { fake: "/placeholder.svg?height=200&width=200", real: "/placeholder.svg?height=200&width=200" },
-    { fake: "/placeholder.svg?height=200&width=200", real: "/placeholder.svg?height=200&width=200" },
-    { fake: "/placeholder.svg?height=200&width=200", real: "/placeholder.svg?height=200&width=200" },
-    { fake: "/placeholder.svg?height=200&width=200", real: "/placeholder.svg?height=200&width=200" },
-    { fake: "/placeholder.svg?height=200&width=200", real: "/placeholder.svg?height=200&width=200" },
-    { fake: "/placeholder.svg?height=200&width=200", real: "/placeholder.svg?height=200&width=200" },
-    { fake: "/placeholder.svg?height=200&width=200", real: "/placeholder.svg?height=200&width=200" },
+    { fake: "images/fake/f1(1).jpg", real: "images/unfake/u1(1).jpg" },
+    { fake: "images/fake/f1(2).jpg", real: "images/unfake/u1(2).jpg" },
+  ],
+  3: [
+    { fake: "images/fake/f1(1).jpg", real: "images/unfake/u1(1).jpg" },
+    { fake: "images/fake/f1(2).jpg", real: "images/unfake/u1(2).jpg" },
+    { fake: "images/fake/f1(3).jpg", real: "images/unfake/u1(1).jpg" },
   ],
 }
 
-// Generate images for levels 3-10 (similar pattern with increasing difficulty)
-for (let level = 3; level <= 10; level++) {
-  levelImages[level] = [
-    {
-      fake: `/placeholder.svg?height=200&width=200&query=fake+AI+level${level}+challenge1`,
-      real: `/placeholder.svg?height=200&width=200&query=real+level${level}+photo1`,
-    },
-    {
-      fake: `/placeholder.svg?height=200&width=200&query=fake+AI+level${level}+challenge2`,
-      real: `/placeholder.svg?height=200&width=200&query=real+level${level}+photo2`,
-    },
-    {
-      fake: `/placeholder.svg?height=200&width=200&query=fake+AI+level${level}+challenge3`,
-      real: `/placeholder.svg?height=200&width=200&query=real+level${level}+photo3`,
-    },
-    {
-      fake: `/placeholder.svg?height=200&width=200&query=fake+AI+level${level}+challenge4`,
-      real: `/placeholder.svg?height=200&width=200&query=real+level${level}+photo4`,
-    },
-    {
-      fake: `/placeholder.svg?height=200&width=200&query=fake+AI+level${level}+challenge5`,
-      real: `/placeholder.svg?height=200&width=200&query=real+level${level}+photo5`,
-    },
-    {
-      fake: `/placeholder.svg?height=200&width=200&query=fake+AI+level${level}+challenge6`,
-      real: `/placeholder.svg?height=200&width=200&query=real+level${level}+photo6`,
-    },
-    {
-      fake: `/placeholder.svg?height=200&width=200&query=fake+AI+level${level}+challenge7`,
-      real: `/placeholder.svg?height=200&width=200&query=real+level${level}+photo7`,
-    },
-    {
-      fake: `/placeholder.svg?height=200&width=200&query=fake+AI+level${level}+challenge8`,
-      real: `/placeholder.svg?height=200&width=200&query=real+level${level}+photo8`,
-    },
-    {
-      fake: `/placeholder.svg?height=200&width=200&query=fake+AI+level${level}+challenge9`,
-      real: `/placeholder.svg?height=200&width=200&query=real+level${level}+photo9`,
-    },
-    {
-      fake: `/placeholder.svg?height=200&width=200&query=fake+AI+level${level}+challenge10`,
-      real: `/placeholder.svg?height=200&width=200&query=real+level${level}+photo10`,
-    },
-  ]
+for (let level = 4; level <= 10; level++) {
+  levelImages[level] = []
+  for (let i = 1; i <= level; i++) {
+    const fakeIndex = ((i - 1) % 3) + 1 // Cycle through f1(1), f1(2), f1(3)
+    const unfakeIndex = ((i - 1) % 2) + 1 // Cycle through u1(1), u1(2)
+    levelImages[level].push({
+      fake: `images/fake/f1(${fakeIndex}).jpg`,
+      real: `images/unfake/u1(${unfakeIndex}).jpg`,
+    })
+  }
 }
 
 function showScreen(screenId) {
@@ -110,7 +62,8 @@ function startGame(level) {
 }
 
 function loadRound() {
-  if (currentRound > 10) {
+  const totalRounds = levelImages[currentLevel].length
+  if (currentRound > totalRounds) {
     endGame()
     return
   }
@@ -199,13 +152,16 @@ function endGame() {
   document.getElementById("finalScore").textContent = score
 
   const scoreMessage = document.getElementById("scoreMessage")
-  if (score >= 9) {
+  const totalQuestions = levelImages[currentLevel].length
+  const scorePercentage = (score / totalQuestions) * 100
+
+  if (scorePercentage >= 90) {
     scoreMessage.innerHTML =
       '<p style="color: #28a745; font-weight: bold;">🏆 Excellent! You have a great eye for detecting fake images!</p>'
-  } else if (score >= 7) {
+  } else if (scorePercentage >= 70) {
     scoreMessage.innerHTML =
       '<p style="color: #667eea; font-weight: bold;">👍 Good job! You did well at spotting the fakes.</p>'
-  } else if (score >= 5) {
+  } else if (scorePercentage >= 50) {
     scoreMessage.innerHTML =
       '<p style="color: #ffc107; font-weight: bold;">⚡ Not bad! Keep practicing to improve your detection skills.</p>'
   } else {
