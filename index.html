@@ -3,12 +3,144 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fake vs Real Image Detection Game</title>
+    <title>AI & Deepfake Detection Challenge</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!-- Home Screen -->
+    <div id="homeScreen" class="screen active">
+        <div class="container">
+            <h1>AI & Deepfake Detection Challenge</h1>
+            <p class="subtitle">Learn, Play, and Understand the Impact of AI-Generated Content</p>
+            
+            <div class="modules-grid">
+                <div class="module-card" onclick="showInformation()">
+                    <div class="module-icon">🧠</div>
+                    <h3>Information</h3>
+                    <p>What is AI & Deepfake?</p>
+                    <div class="module-arrow">→</div>
+                </div>
+                
+                <div class="module-card" onclick="showCaseStudy()">
+                    <div class="module-icon">📚</div>
+                    <h3>Case Study</h3>
+                    <p>Real-World Example</p>
+                    <div class="module-arrow">→</div>
+                </div>
+                
+                <div class="module-card" onclick="showStart()">
+                    <div class="module-icon">🎮</div>
+                    <h3>Game</h3>
+                    <p>Play the Interactive Game</p>
+                    <div class="module-arrow">→</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Information Screen -->
+    <div id="informationScreen" class="screen">
+        <div class="container">
+            <h2>What is AI and Deepfake?</h2>
+            
+            <div class="info-section">
+                <h3>🤖 Artificial Intelligence (AI)</h3>
+                <p>Artificial Intelligence is technology that enables machines to simulate human intelligence. AI can learn patterns, make decisions, and create content that appears human-made.</p>
+            </div>
+
+            <div class="info-section">
+                <h3>🎭 Deepfake Technology</h3>
+                <p>Deepfakes use AI to create realistic but fake content by replacing someone's likeness with someone else's. This technology can generate:</p>
+                <ul>
+                    <li><strong>Fake Videos:</strong> Making it appear someone said or did something they never did</li>
+                    <li><strong>Fake Images:</strong> Creating realistic photos of people, places, or events that never existed</li>
+                    <li><strong>Fake Voices:</strong> Mimicking someone's voice to say anything</li>
+                </ul>
+            </div>
+
+            <div class="info-section">
+                <h3>⚖️ Why It Matters</h3>
+                <div class="importance-grid">
+                    <div class="importance-item negative">
+                        <h4>Concerns:</h4>
+                        <ul>
+                            <li>Spreading misinformation</li>
+                            <li>Identity theft and fraud</li>
+                            <li>Damaging reputations</li>
+                            <li>Political manipulation</li>
+                        </ul>
+                    </div>
+                    <div class="importance-item positive">
+                        <h4>Positive Uses:</h4>
+                        <ul>
+                            <li>Movie special effects</li>
+                            <li>Historical recreations</li>
+                            <li>Language dubbing</li>
+                            <li>Art and creativity</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cta-section">
+                <p class="cta-text">Ready to test your detection skills?</p>
+                <button class="btn primary" onclick="showStart()">Try the Game</button>
+                <button class="btn secondary" onclick="showHome()">Back to Home</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Case Study Screen -->
+    <div id="caseStudyScreen" class="screen">
+        <div class="container">
+            <h2>Case Study: The Viral Deepfake</h2>
+            
+            <div class="case-study-content">
+                <div class="case-intro">
+                    <h3>📰 Real-World Example</h3>
+                    <p>In 2019, a deepfake video of Facebook CEO Mark Zuckerberg went viral. The fake video showed him making statements he never actually made about controlling people's data.</p>
+                </div>
+
+                <div class="case-details">
+                    <h4>What Happened:</h4>
+                    <ul>
+                        <li>Artists created a convincing deepfake video as an art project</li>
+                        <li>The video spread rapidly across social media platforms</li>
+                        <li>Many people initially believed it was real</li>
+                        <li>It sparked debates about deepfake policies on social platforms</li>
+                    </ul>
+                </div>
+
+                <div class="case-impact">
+                    <h4>The Impact:</h4>
+                    <ul>
+                        <li>Raised awareness about deepfake technology</li>
+                        <li>Led to new content policies on social media</li>
+                        <li>Highlighted the need for detection tools</li>
+                        <li>Showed how quickly fake content can spread</li>
+                    </ul>
+                </div>
+
+                <div class="reflection-section">
+                    <h4>🤔 Reflection Questions:</h4>
+                    <div class="reflection-questions">
+                        <p><strong>1.</strong> How would you verify if a suspicious video is real or fake?</p>
+                        <p><strong>2.</strong> What responsibility do social media platforms have in detecting deepfakes?</p>
+                        <p><strong>3.</strong> How might deepfakes affect trust in media and news?</p>
+                        <p><strong>4.</strong> What skills did you develop from playing the detection game?</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="case-study-actions">
+                <button class="btn primary" onclick="showStart()">Play Again</button>
+                <button class="btn secondary" onclick="showHome()">Back to Home</button>
+            </div>
+        </div>
+    </div>
+
     <!-- Start Screen -->
-    <div id="startScreen" class="screen active">
+    <div id="startScreen" class="screen">
         <div class="container">
             <h1>Fake vs Real</h1>
             <p class="subtitle">Image Detection Challenge</p>
@@ -19,10 +151,11 @@
                     <li>Choose a difficulty level (1-10)</li>
                     <li>Look at two images and identify which one is fake</li>
                     <li>Get 1 point for each correct answer</li>
-                    <li>Complete 10 rounds to finish the level</li>
+                    <li>Each level has different number of rounds</li>
                 </ul>
             </div>
             <button class="btn primary" onclick="showLevelSelect()">Start Game</button>
+            <button class="btn secondary" onclick="showHome()">Back to Home</button>
         </div>
     </div>
 
@@ -92,7 +225,8 @@
             </div>
             <div class="win-controls">
                 <button class="btn primary" onclick="showLevelSelect()">Choose Another Level</button>
-                <button class="btn secondary" onclick="showStart()">Main Menu</button>
+                <button class="btn primary" onclick="showCaseStudy()">See Related Case Study</button>
+                <button class="btn secondary" onclick="showHome()">Main Menu</button>
             </div>
         </div>
     </div>

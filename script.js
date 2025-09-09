@@ -38,6 +38,18 @@ function showScreen(screenId) {
   document.getElementById(screenId).classList.add("active")
 }
 
+function showHome() {
+  showScreen("homeScreen")
+}
+
+function showInformation() {
+  showScreen("informationScreen")
+}
+
+function showCaseStudy() {
+  showScreen("caseStudyScreen")
+}
+
 function showStart() {
   showScreen("startScreen")
 }
@@ -189,5 +201,4 @@ function endGame() {
   showScreen("winScreen")
 }
 
-// Initialize the game
-showStart()
+showHome()
