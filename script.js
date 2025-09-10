@@ -12,52 +12,42 @@ let ballTimeLeft = 3
 const levelImages = {
   1: [{ fake: "images/fake/f1(1).jpg", real: "images/unfake/u1(1).jpg" }],
   2: [
-    { fake: "images/fake/f1(1).jpg", real: "images/unfake/u1(1).jpg" },
-    { fake: "images/fake/f2(1).jpg", real: "images/unfake/u1(2).jpg" },
+    { fake: "images/fake/f2(4).jpg", real: "images/unfake/u2(1).jpg" },
+    { fake: "images/fake/f2(7).jpg", real: "images/unfake/u2(2).jpg" },
   ],
   3: [
-    { fake: "images/fake/f1(1).jpg", real: "images/unfake/u1(1).jpg" },
-    { fake: "images/fake/f1(2).jpg", real: "images/unfake/u1(2).jpg" },
-    { fake: "images/fake/f2(2).jpg", real: "images/unfake/u1(3).jpg" },
+    { fake: "images/fake/f2(4).jpg", real: "images/unfake/u2(1).jpg" },
+    { fake: "images/fake/f2(7).jpg", real: "images/unfake/u2(2).jpg" },
+    { fake: "images/fake/f2(8).jpg", real: "images/unfake/u2(3).jpg" },
   ],
   4: [
-    { fake: "images/fake/f2(1).jpg", real: "images/unfake/u1(1).jpg" },
-    { fake: "images/fake/f2(2).jpg", real: "images/unfake/u1(2).jpg" },
-    { fake: "images/fake/f4(2).jpg", real: "images/unfake/u1(3).jpg" },
-    { fake: "images/fake/f1(3).jpg", real: "images/unfake/u1(4).jpg" },
+    { fake: "images/fake/f2(4).jpg", real: "images/unfake/u2(1).jpg" },
+    { fake: "images/fake/f2(7).jpg", real: "images/unfake/u2(2).jpg" },
+    { fake: "images/fake/f4(1).jpg", real: "images/unfake/u2(3).jpg" },
+    { fake: "images/fake/f2(8).jpg", real: "images/unfake/u2(4).jpg" },
   ],
   5: [
-    { fake: "images/fake/f2(1).jpg", real: "images/unfake/u1(1).jpg" },
-    { fake: "images/fake/f2(2).jpg", real: "images/unfake/u1(2).jpg" },
-    { fake: "images/fake/f2(3).jpg", real: "images/unfake/u1(3).jpg" },
-    { fake: "images/fake/f4(2).jpg", real: "images/unfake/u1(4).jpg" },
-    { fake: "images/fake/f4(3).jpg", real: "images/unfake/u1(1).jpg" },
+    { fake: "images/fake/f2(4).jpg", real: "images/unfake/u2(1).jpg" },
+    { fake: "images/fake/f2(7).jpg", real: "images/unfake/u2(2).jpg" },
+    { fake: "images/fake/f2(8).jpg", real: "images/unfake/u2(3).jpg" },
+    { fake: "images/fake/f4(1).jpg", real: "images/unfake/u2(4).jpg" },
+    { fake: "images/fake/f4(2).jpg", real: "images/unfake/u2(5).jpg" },
   ],
   6: [
-    { fake: "images/fake/f2(1).jpg", real: "images/unfake/u1(1).jpg" },
-    { fake: "images/fake/f2(2).jpg", real: "images/unfake/u1(2).jpg" },
-    { fake: "images/fake/f2(3).jpg", real: "images/unfake/u1(3).jpg" },
-    { fake: "images/fake/f2(4).jpg", real: "images/unfake/u1(4).jpg" },
-    { fake: "images/fake/f4(2).jpg", real: "images/unfake/u1(1).jpg" },
-    { fake: "images/fake/f4(3).jpg", real: "images/unfake/u1(2).jpg" },
+    { fake: "images/fake/f2(4).jpg", real: "images/unfake/u2(1).jpg" },
+    { fake: "images/fake/f2(7).jpg", real: "images/unfake/u2(2).jpg" },
+    { fake: "images/fake/f2(8).jpg", real: "images/unfake/u2(3).jpg" },
+    { fake: "images/fake/f2(4).jpg", real: "images/unfake/u2(4).jpg" },
+    { fake: "images/fake/f4(1).jpg", real: "images/unfake/u2(5).jpg" },
+    { fake: "images/fake/f4(2).jpg", real: "images/unfake/u2(1).jpg" },
   ],
 }
 
 for (let level = 7; level <= 9; level++) {
   levelImages[level] = []
   for (let i = 1; i <= level; i++) {
-    const fakeOptions = [
-      "f1(1).jpg",
-      "f1(2).jpg",
-      "f1(3).jpg",
-      "f2(1).jpg",
-      "f2(2).jpg",
-      "f2(3).jpg",
-      "f2(4).jpg",
-      "f4(2).jpg",
-      "f4(3).jpg",
-    ]
-    const realOptions = ["u1(1).jpg", "u1(2).jpg", "u1(3).jpg", "u1(4).jpg"]
+    const fakeOptions = ["f2(4).jpg", "f2(7).jpg", "f2(8).jpg", "f4(1).jpg", "f4(2).jpg"]
+    const realOptions = ["u2(1).jpg", "u2(2).jpg", "u2(3).jpg", "u2(4).jpg", "u2(5).jpg"]
 
     const fakeIndex = (i - 1) % fakeOptions.length
     const realIndex = (i - 1) % realOptions.length
@@ -330,6 +320,17 @@ function checkBallAnswer(direction, isImageFake, timeUp) {
   const correctAnswer = isImageFake ? "right" : "left"
   const isCorrect = direction === correctAnswer
 
+  console.log(
+    "[v0] Ball answer check - direction:",
+    direction,
+    "isImageFake:",
+    isImageFake,
+    "correctAnswer:",
+    correctAnswer,
+    "isCorrect:",
+    isCorrect,
+  )
+
   if (timeUp) {
     feedback.innerHTML = "⏰ Time's up! Random choice made."
     feedback.className = "ball-feedback incorrect"
@@ -339,7 +340,7 @@ function checkBallAnswer(direction, isImageFake, timeUp) {
     score++
     document.getElementById("ballScore").textContent = score
   } else {
-    feedback.innerHTML = `❌ Wrong! The image was ${isImageFake ? "fake" : "real"}.`
+    feedback.innerHTML = `❌ Wrong! The image was ${isImageFake ? "fake (should roll right)" : "real (should roll left)"}.`
     feedback.className = "ball-feedback incorrect"
   }
 
