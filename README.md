@@ -68,23 +68,20 @@ This project is an educational game designed to teach users about AI-generated d
 
 
 ## Project structure: Deepfake Education App
-
+```text
 src/
  ├── pages/
  │   ├── Home.jsx              # 3 modules (Information, Case Study, Game)
- │   ├── Information.jsx       # Explains AI & deepfakes
- │   ├── CaseStudy.jsx         # Dynamic content after each level
- │   └── Game.jsx              # Level manager & progress tracker
+ │   ├── Information.jsx       # Intro to AI & Deepfakes
+ │   ├── CaseStudy.jsx         # Displays case study per level
+ │   └── Game.jsx              # Handles level progression
  │
  ├── levels/
  │   ├── Level1-3.jsx          # Image choice levels
  │   ├── Level4-6.jsx          # Ball roll challenge
  │   ├── Level7-9.jsx          # Find the fake
- │   └── Level10.jsx           # Final creation/detection challenge
+ │   └── Level10.jsx           # more information
  │
  └── assets/
-     ├── images/
-     │   ├── f1(1).jpg         # Level 1 image 1
-     │   ├── f1(2).jpg
-     │   └── ...
-     └── caseStudies.json      # Stores case study text for each level
+     ├── images/               # f1(1).jpg, f1(2).jpg, ...
+     └── caseStudies.json      # Text for each case study page
