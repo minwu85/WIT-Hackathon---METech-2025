@@ -41,7 +41,7 @@ This project is an educational game designed to teach users about AI-generated d
 - Needs **2/3 correct per level** to pass.
 - After passing → **Case Study Page**
 
-**Case Study After Level 4: Who is Affected **
+**Case Study After Level 4: Who is Affected**
 
 > **Targets:** Anyone can be targeted — students, teachers, friends. All it takes is one image and the wrong app. Victims may feel fear, shame, anger, or confusion.  
 > **Bystanders:** People who see fake images online may not know how to act or may fear becoming the next target.  
