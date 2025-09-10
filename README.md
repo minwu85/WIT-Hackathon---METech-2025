@@ -19,7 +19,7 @@ This project is an educational game designed to teach users about AI-generated d
 - Must get **2 out of 3 correct** to pass.
 - After passing → **Case Study Page**
 
-**Case Study After Level 1: How Deepfake Abuse Happens (Reworded)**
+**Case Study After Level 1: How Deepfake Abuse Happens **
 
 > Many deepfakes targeting young people are made with “nudify” apps — tools that remove clothing from photos to create fake explicit images.  
 > 
